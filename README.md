@@ -1,6 +1,6 @@
-# lv-simple-demo
+# A project for lottery
 
-> a simple demo for ours
+> a simple demo for group
 
 ## Build Setup
 
