@@ -1,8 +1,8 @@
 // 存入值至localStorage
-export const setItem = (key, data) => localStorage.setItem(key,JSON.stringify(data))
+export const set = (key, data, storage = window.localStorage) => storage.setItem(key,JSON.stringify(data))
 // 根据key拿值
-export const getItem = (key) => JSON.parse(localStorage.getItem(key))
+export const get = (key, storage = window.localStorage) => JSON.parse(storage.getItem(key))
 // 根据key删除值
-export const removeItem = key => localStorage.removeItem(key)
+export const remove = (key, storage = window.localStorage) => storage.removeItem(key)
 // 清除所有的缓存
-export const removeAll = () => localStorage.clear()
+export const remove = (storage = window.localStorage) => storage.clear()

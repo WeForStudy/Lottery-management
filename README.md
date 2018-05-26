@@ -34,8 +34,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
  CSS-GUIDE.md // 一些css编写规范
  HTML-GUIDE.md // 一些HTML编写规范
  JS-GUIDE.md // 一些JS编写规范
-  store => 封装了浏览器缓存的工具类 
-    使用方式： import { setItem } from 'xxx/store'
+  storage => 封装了浏览器缓存的工具类 
+    使用方式： import { set } from 'xxx/store'
   helper => 封装了一些通用的常用方法
     使用方式： import { funcA } from 'xxx/helper'
   pages => 页面写在这里
