@@ -5614,7 +5614,7 @@ stylus-loader@^3.0.2:
 
 stylus@^0.54.5:
   version "0.54.5"
-  resolved "http://registry.npm.taobao.org/stylus/download/stylus-0.54.5.tgz#42b9560931ca7090ce8515a798ba9e6aa3d6dc79"
+  resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.54.5.tgz#42b9560931ca7090ce8515a798ba9e6aa3d6dc79"
   dependencies:
     css-parse "1.7.x"
     debug "*"
