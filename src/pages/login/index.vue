@@ -1,28 +1,71 @@
 <template>
-  <div class="login--wrapper">
-    <li class="login--title"> {{ title }} </li>
-    <li class="wec--login"> {{ wecomelogin }} </li>
+  <div class="login--wrapper height--100 width--100 flex flex--bcenter">
+    <div class="login--box">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+        <el-form-item label="账号" prop="name">
+          <el-input v-model="ruleForm.name"></el-input>
+        </el-form-item>
+         <el-form-item label="密码" prop="password">
+          <el-input v-model="ruleForm.password"></el-input>
+        </el-form-item>
+         <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+            <el-button @click="resetForm('ruleForm')">重置</el-button>
+          </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Login',
-  data(){
-    return{
-      title : '数据中心管理系统',
-      wecomelogin : '欢迎登陆'  
+import { onLogin } from 'services'
+  export default {
+    data() {
+      return {
+        ruleForm: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        rules: {
+          name: [
+            { required: true, message: '请输入账号', trigger: 'blur' },
+          ],
+          password: [
+            { required: true, message: '请输入密码', }
+          ],
+        }
+      };
+    },
+    methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            onLogin({
+
+            }).then(res => {
+              this.$router.push({name: 'home'})
+            }).catch(err => console.log(err))
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
     }
-  },
-  components: {
   }
-}
 </script>
 
 <style lang="stylus">
   .login--wrapper
-    justify-content center
-    align-items center
     .login--title
       font-size 33px
       font-family PingFangSC-Regular

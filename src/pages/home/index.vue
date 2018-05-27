@@ -21,6 +21,8 @@
 <script>
 import Slider from 'pages/slider'
 import { mapActions, mapState } from 'vuex'
+import { TOKEN_KEY, get } from 'storage'
+
 export default {
   name: 'Home',
   components: {
@@ -31,8 +33,11 @@ export default {
       'collapse'
     ])
   },
-  created() {
-    console.log(this.$store.state)
+  beforeCreate() {
+    // const token = get(TOKEN_KEY)
+    // if (!token) {
+    //   window.location.replace('#/login')
+    // }
   },
   computed: {
      ...mapState([

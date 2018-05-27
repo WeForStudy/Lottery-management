@@ -1,11 +1,11 @@
-import LoginPage from 'pages/login'
+import HomePage from 'pages/home'
 import DashBoardRoutes from './dashboard'
 import UserRoutes from './user'
 export default [
   {
-    path: '/',
-    component: LoginPage,
-    name: 'Login',
+    path: '/home',
+    component: HomePage,
+    name: 'Home',
     children: [
       ...UserRoutes,
       ...DashBoardRoutes,

@@ -25,7 +25,6 @@ npm run build --report
   # git pull // 拉取線上代碼庫代碼
   # git push // 提交你的代碼至線上代碼庫
 ```
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
 ## 文件夹详解
@@ -45,3 +44,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     添加路由请相对应的子路由添加
   common => 里面存放了一些通用的样式或布局（一般不做修改）
 ```
+ - services 
+   > 里面封装了所有的fetch请求，根据模块的不同写在不同的js文件内
+    - 1.先在apis.js里面添加对应的路径
+    - 2.在services里对应的模块添加方法
+    - 3.在页面import调用
