@@ -17,7 +17,6 @@ export default {
     left 0
     right 0
     display flex
-    background-color pink 
     .router-wrapper
       position absolute
       top 0
