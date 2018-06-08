@@ -1,6 +1,7 @@
 import HomePage from 'pages/home'
 import DashBoardRoutes from './dashboard'
 import UserRoutes from './user'
+import AdminRouters from './admin'
 export default [
   {
     path: '/home',
@@ -9,6 +10,7 @@ export default [
     children: [
       ...UserRoutes,
       ...DashBoardRoutes,
+      ...AdminRouters
     ],
   },
 ]

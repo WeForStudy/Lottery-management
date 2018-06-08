@@ -8,6 +8,9 @@
             <div class="icon--wrapper position--a" @click="collapse">
               <i :class="btnIcon"></i>
             </div>
+            <div class="icon--wrapper">
+              <i class="el-icon-search both--100-right"></i>  
+            </div>
           </el-header>
           <el-main class="main flex">
             <div class="router--wrapper flex--1">
@@ -45,6 +48,7 @@ export default {
     ]),
     sStyle() {
       const flag = this.slide.isCollapse
+      console.log(flag)
       if (flag) {
         return {
           width: 80,
@@ -67,7 +71,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../../common/colors.styl'
 .main {
-  background-color: bgcolor
+  background-color: #fff
   .router--wrapper {
     background-color #fff
   }
@@ -81,11 +85,21 @@ export default {
   }
 }
 .header {
-  align-items center
+  align-items center  
+  background-color: rgba(255, 255, 255, 1)
+  box-shadow: 0px 1px 4px 0px rgba(0, 21, 41, 0.12)
   .icon--wrapper {
     .both--100 {
       font-size 30px
       cursor pointer
+      color #000
+      float left 
+    }
+    .both--100-right {
+      font-size 30px
+      cursor pointer 
+      color #000
+      float right   
     }
   }
 }

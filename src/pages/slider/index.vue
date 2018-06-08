@@ -10,7 +10,7 @@
           <i :class="'el-icon-'+item.icon"></i>
           <span slot="title">{{item.text}}</span>
         </template>
-          <el-menu-item v-for="(child) in item.children" :key="child.name" :index="child.name"  @click="routerClick(child.path)">
+          <el-menu-item class="el-memu-child" v-for="(child) in item.children" :key="child.name" :index="child.name"  @click="routerClick(child.path)">
             {{child.text}}
           </el-menu-item>
       </el-submenu>
@@ -33,7 +33,7 @@ import { mapActions, mapState } from 'vuex'
           {
             name: 'user',
             text: '用户管理',
-            icon: 'edit',            
+            icon: 'info',            
             children: [
               { 
                 name: 'ulist',
@@ -41,6 +41,23 @@ import { mapActions, mapState } from 'vuex'
                 path: 'ulist', 
               },
             ],
+          },
+          {
+            name: 'admin-management',
+            text: '后台管理',
+            icon: 'star-on',
+            children :[
+              {
+                name: 'admin',
+                text: '管理员',
+                path: 'alist'  
+              },
+              {
+                name: 'stastatement',
+                text: '统计报表',
+                path: 'alist'
+              }  
+            ]  
           }
         ]
       }
@@ -67,7 +84,13 @@ import { mapActions, mapState } from 'vuex'
   }
 </script>
 <style lang="stylus" scoped>
-.el-menu-vertical-demo {
-  border none
-}
+  .el-menu-vertical-demo {
+    height 100%
+    border none
+    background-color #002240
+  }
+    .el-memu-child {
+      background-color #002240
+      color #ccc
+    }
 </style>

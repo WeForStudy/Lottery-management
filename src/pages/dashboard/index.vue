@@ -1,5 +1,5 @@
 <template>
-  <div class="login--wrapper">
+  <div class="dashboard--wrapper">
     im dashboard
   </div>
 </template>
@@ -13,4 +13,7 @@ export default {
 </script>
 
 <style lang="stylus">
+  .dashboard--wrapper {
+    color pink   
+  }  
 </style>

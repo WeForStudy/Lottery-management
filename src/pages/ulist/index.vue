@@ -13,4 +13,7 @@ export default {
 </script>
 
 <style lang="stylus">
+  .login--wrapper {
+    color pink 
+  }
 </style>
