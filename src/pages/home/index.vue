@@ -4,16 +4,18 @@
           <Slider />
         </el-aside>
         <el-container class="flex--1">
-          <el-header class="header flex">
-            <div class="icon--wrapper position--a" @click="collapse">
+          <el-header class="header flex position--r">
+            <div class="icon--wrapper flex--1" @click="collapse">
               <i :class="btnIcon"></i>
             </div>
-            <div class="infrom--wrapper position--r" @click="infrom">
-              <i class="el-icon-bell"></i>  
-            </div>
-            <div class="user--wrapper position--r">
-              <i class="el-icon-picture"></i>
-              <span> {{ username }} </span>  
+            <div class="right--wrapper flex">
+              <div class="infrom--wrapper" @click="infrom">
+                <i class="el-icon-bell"></i>  
+              </div>
+              <div class="user--wrapper">
+                <i class="el-icon-picture"></i>
+                <span> {{ username }} </span>  
+              </div>
             </div>
           </el-header>
           <el-main class="main flex">
@@ -102,20 +104,24 @@ export default {
 .header {
   align-items center  
   .icon--wrapper {
+    margin-left 25px
     .both--100 {
       font-size 30px
       cursor pointer
       color #000
     }
   }
-  .infrom--wrapper {
-    cursor pointer
-    left  1200px  
+  .right--wrapper {
+    width: 200px
+    margin-right 24px
+    .infrom--wrapper {
+      cursor pointer
+    }
+    .user--wrapper {
+      cursor pointer 
+    }
   }
-  .user--wrapper {
-    cursor pointer 
-    left 1220px  
-  }
+  
   
 }
 
