@@ -89,6 +89,9 @@ import { mapActions, mapState } from 'vuex'
     border none
     background-color #002240
   }
+  .el-menu-vertical-demo span {
+    color #fff   
+  }
     .el-memu-child {
       background-color #002240
       color #ccc

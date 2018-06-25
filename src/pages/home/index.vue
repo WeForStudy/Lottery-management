@@ -8,8 +8,12 @@
             <div class="icon--wrapper position--a" @click="collapse">
               <i :class="btnIcon"></i>
             </div>
-            <div class="icon--wrapper">
-              <i class="el-icon-search both--100-right"></i>  
+            <div class="infrom--wrapper position--r" @click="infrom">
+              <i class="el-icon-bell"></i>  
+            </div>
+            <div class="user--wrapper position--r">
+              <i class="el-icon-picture"></i>
+              <span> {{ username }} </span>  
             </div>
           </el-header>
           <el-main class="main flex">
@@ -28,13 +32,21 @@ import { TOKEN_KEY, get } from 'storage'
 
 export default {
   name: 'Home',
+  data () {
+    return {
+      username: 'August'
+    }  
+  },
   components: {
     Slider,
   },
   methods: {
     ...mapActions([
       'collapse'
-    ])
+    ]),
+    infrom (){
+      console.log('点击')  
+    }
   },
   beforeCreate() {
     // const token = get(TOKEN_KEY)
@@ -64,6 +76,9 @@ export default {
     btnIcon() {
       return this.slide.isCollapse ? 'el-icon-arrow-right both--100' : 'el-icon-arrow-left both--100'
     },
+    btnBell() {
+      return 'el-icon-bell both--100-right'  
+    }
   }
 }
 </script>
@@ -71,7 +86,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../../common/colors.styl'
 .main {
-  background-color: #fff
+  background-color: #F0F2F5
   .router--wrapper {
     background-color #fff
   }
@@ -86,22 +101,22 @@ export default {
 }
 .header {
   align-items center  
-  background-color: rgba(255, 255, 255, 1)
-  box-shadow: 0px 1px 4px 0px rgba(0, 21, 41, 0.12)
   .icon--wrapper {
     .both--100 {
       font-size 30px
       cursor pointer
       color #000
-      float left 
-    }
-    .both--100-right {
-      font-size 30px
-      cursor pointer 
-      color #000
-      float right   
     }
   }
+  .infrom--wrapper {
+    cursor pointer
+    left  1200px  
+  }
+  .user--wrapper {
+    cursor pointer 
+    left 1220px  
+  }
+  
 }
 
 </style>

@@ -1,148 +1,162 @@
 <template>
-  <div class="admin--wrapper flex">
-    <div class="admin--left--wrapper flex flex--acenter">
-      <el-form :model="ruleFrom" ref="ruleFrom" label-width="200px" class="rulefrom">
-        <el-input
-        suffix-icon="el-icon-search"
-        ></el-input>
+  <el-container class="admin--wrapper both--100 flex">
+    <el-aside class="admin--list">
+      <el-form class="flex flex--jcenter">
+          <el-input
+          suffix-icon="el-icon-search"
+          class="search--input"
+          ></el-input>    
       </el-form>
-      <span class="adminfield">管理员列表</span>
-      <ul class="nav-group-title">
-        <li class="nav-left">姓名</li>
-        <li class="nav-right">状态</li>
-      </ul>
-      <div class="list width--100 height--100 flex">
-        <ul class="admin">
-          <li class="admin-list" v-for="(admins,index) in admin" :key="index" @click="selectAdmin(index)">
-            <span class="admin-name"> {{ admins.name }} </span>
-            <span class="admin-state"> {{ admins.stateTitle }} </span>
-          </li>
-        </ul>
+      <div class="admin--title">管理员列表</div>
+      <el-table
+        :data="adminlist"
+        style="width: 100%"
+        type="index"
+        @row-click="tableClick(index)"
+        >
+        <el-table-column
+        label="姓名"
+        prop="name"
+        width="150px"
+        >
+        </el-table-column>
+        <el-table-column
+        label="状态"
+        prop="state"
+        width="150px"
+        >
+        </el-table-column>    
+      </el-table>
+      <el-button 
+        class="bottom--button position--r"
+        type="primary"
+        icon="el-icon-plus">
+        添加</el-button>      
+    </el-aside>
+    <el-main class="right--main">
+      <div class="dynamic--wrapper">
+        <span class="dynamic--title"> 
+          {{ dynamictitle }} 
+        </span>
+        <el-button class="delectadmin">删除</el-button>  
       </div>
-      <div class="insadmin flex flex--jcenter">
-        <el-button type="primary" icon="el-icon-circle-plus-outline" class="insclick">添加</el-button>
-      </div>
-    </div>
-    <div class="admin--right--wrapper flex flex--1">
-      0
-    </div>
-  </div>
-
+      <el-form ref="form" label-width="80px" class="query--from">
+        <el-form-item label="姓名:">
+          <el-input :placeholder="dynamictitle" disabled="false"></el-input>
+       </el-form-item>
+       <el-form-item label="性别">
+       <el-radio-group>
+         <el-radio label="男"></el-radio>
+         <el-radio label="女"></el-radio>
+       </el-radio-group> 
+       </el-form-item>
+       <el-form-item label="邮箱:">
+          <el-input :placeholder="adminlist.email" disabled="false"></el-input>
+       </el-form-item>
+       <el-form-item label="电话:">
+          <el-input :placeholder="adminlist.phone" disabled="false"></el-input>
+       </el-form-item>
+       <el-form-item label="密码:">
+          <el-input :placeholder="adminlist.password" disabled="false"></el-input>
+       </el-form-item>
+      </el-form>     
+    </el-main>    
+  </el-container> 
 </template>
-
 <script>
 export default {
   name: 'admin',
-  data(){
-    return{
-      ruleFrom :{
-        name: ''
-      },
-      admin: [
+  data() {
+    return {
+      adminlist :[
+        {
+          name: '邢宗旭',
+          sex: '',
+          email: '',
+          phone: '',
+          password: '',
+          state: '已注册', 
+        },
+        {
+          name: 'xingzongux',
+          sex: '',
+          email: '',
+          phone: '',
+          password: '',
+          state: '未注册', 
+        },
         {
           name: 'august',
-          password: '123456',
-          state: false,
-          stateTitle: '未注册',
-          sex: '男',
-          phone: '13500000000'
+          sex: '',
+          email: '',
+          phone: '',
+          password: '',
+          state: '未注册', 
         },
         {
-          name: 'heimi',
-          password: '123456',
-          state: true,
-          stateTitle: '已注册',
-          sex: '男',
-          phone : '17000000000'
+          name: 'august',
+          sex: '',
+          email: '',
+          phone: '',
+          password: '',
+          state: '未注册', 
         },
         {
-          name: 'frank',
-          password: '123456',
-          state: false,
-          stateTitle :'未注册',
-          sex: '男',
-          phone: '15900000000'
-        }
-        ]
-    }
+          name: 'august',
+          sex: '',
+          email: '',
+          phone: '',
+          password: '',
+          state: '未注册', 
+        }           
+      ],
+      dynamictitle: '管理员信息'  
+    }  
   },
-  rules:{
-
-  },
-  methods:{
-    selectAdmin(index){
-      console.log(index)
-    }
+  methods: {
+    tableClick (index){
+      console.log('ClickMe'+index)  
+    }  
   }
 }
 </script>
-
-<style scoped lang="stylus">
-  .admin--wrapper{
-    height 100%
-  }
-  .admin--left--wrapper {
-     width 253px
-     height 100%
-     background-color #FAFAFA
-     flex-direction column
-     color pink 
+<style lang="stylus">
+  .admin--list{
+    background-color #FAFAFA
+    .admin--title {
+      width 100%
+      text-align center
+      margin 20px auto
+      font-size 20px
     }
-  .rulefrom {
+    .search--input {
+      width 80%
       margin-top 10px
     }
-  .adminfield {
-    padding 15px
-    font-size  20px
-    font-family PingFangSC-Medium
-    color #595959
-    font-weight 700
-   }
-  .nav-group-title {
-    width 85%
-    color #000
-    font-family PingFangSC-Medium
-    font-weight 540
-    margin-bottom 18px
-  }
-  .nav-group-title
-  .nav-left {
-    float left
-  }
-  .nav-group-title
-  .nav-right{
-    float right
-  }
-  .list {
-    background-color #fff
-    justify-content center
+    .bottom--button{
+      top 30px
+      left 100px  
     }
-  .admin {
-      width 85%
-      font-family PingFangSC-Medium
-      font-weight 540
-      font-size 14px
   }
-  .admin
-  .admin-list {
-    cursor pointer
-    padding 13px 0;
+  .right--main {
+    background-color #FFFFFF 
+    .dynamic--wrapper {
+      width 100%
+      height 50px
+      border-bottom  1px solid #ccc
+      .dynamic--title {
+        float left
+        margin-left 15px
+        line-height 50px
+        font-size 18px    
+      }
+      .delectadmin {
+        float right 
+      }
+    }  
   }
-  .admin
-  .admin-name {
+  .query--from {
+    margin-top 100px  
   }
-  .admin
-  .admin-state {
-    float right
-  }
-  .insadmin {
-    width 100%
-    height 25%
-    background #fff
-  }
-  .insclick {
-    width 90px
-    height 40px
-  }
-
 </style>
+
