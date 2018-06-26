@@ -1,15 +1,19 @@
 <template>
   <div class="login--wrapper both--100 flex--bcenter">
       <el-form :model="models" status-icon :rules="rules" ref="form" label-width="100px" class="login--form">
-         <el-form-item label="账号" prop="account">
-          <el-input  v-model="models.account" auto-complete="off"></el-input>
+         <el-form-item prop="account">
+          <el-input  v-model="models.account" auto-complete="off" placeholder="账号">
+            <i slot="prefix" class="el-input__icon el-icon-info"></i>
+          </el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="pass">
-          <el-input type="password" v-model="models.pass" auto-complete="off"></el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="models.password" auto-complete="off" placeholder="密码">
+            <i slot="prefix" class="el-input__icon el-icon-edit
+"></i>
+          </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('form')">提交</el-button>
-          <el-button @click="resetForm('ruleForm2')">重置</el-button>
+          <el-button type="primary" @click="submitForm('form')" class="both--100">登陆</el-button>
         </el-form-item>
       </el-form>
   </div>
@@ -18,9 +22,9 @@
 <script>
 export default {
     data() {
-      const validatePass = (rule, value, callback) => {
+      const validateAccount = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入密码'));
+          callback(new Error('请输入账号'));
         } else {
           callback();
         }
@@ -33,11 +37,11 @@ export default {
         rules: {
 
           account: [
-            { validator: validatePass, trigger: 'blur' }
+            { trigger: 'blur', required: true, }
           ],
 
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
+          password: [
+            { trigger: 'blur', required: true, }
           ],
           
         }
