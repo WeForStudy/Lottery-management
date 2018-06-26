@@ -8,8 +8,7 @@
         </el-form-item>
         <el-form-item prop="password">
           <el-input type="password" v-model="models.password" auto-complete="off" placeholder="密码">
-            <i slot="prefix" class="el-input__icon el-icon-edit
-"></i>
+            <i slot="prefix" class="el-input__icon el-icon-edit"></i>
           </el-input>
         </el-form-item>
         <el-form-item>
@@ -58,9 +57,6 @@ export default {
           }
         });
       },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      }
     }
   }
 </script>

@@ -1,7 +1,7 @@
 import HomePage from 'pages/home'
 import DashBoardRoutes from './dashboard'
 import UserRoutes from './user'
-import BusinessRoutes from './business'
+import GuiderRoutes from './guide'
 
 export default [
   { 
@@ -11,7 +11,7 @@ export default [
     children: [
       ...UserRoutes,
       ...DashBoardRoutes,
-      ...BusinessRoutes,
+      ...GuiderRoutes,
     ],
   },
 ]

@@ -33,14 +33,14 @@ import { mapActions, mapState } from 'vuex'
           },
 
            {
-            name: 'business',
-            text: '商家管理',
+            name: 'guide',
+            text: '导游管理',
             icon: 'edit',            
             children: [
               { 
-                name: 'blist',
-                text: '商家列表', 
-                path: 'blist', 
+                name: 'glist',
+                text: '导游列表', 
+                path: 'glist', 
               },
             ],
           },
