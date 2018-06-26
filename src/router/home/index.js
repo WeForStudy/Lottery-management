@@ -5,7 +5,7 @@ import BusinessRoutes from './business'
 
 export default [
   { 
-    path: '/', 
+    path: '/home', 
     component: HomePage,
     name: 'home',
     children: [

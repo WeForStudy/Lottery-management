@@ -10,5 +10,9 @@ export default new Router({
   routes: [
     ...LoginRoute,
     ...HomeRoute,
+    { 
+      path: '/', 
+      redirect: '/login',
+    },
   ]
 })
