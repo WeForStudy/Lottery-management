@@ -1,9 +1,9 @@
-import UListPage from 'pages/ulist'
+import List from 'pages/user/list'
 
 export default [
   {
     path: '/ulist',
     name: 'ulist',
-    component: UListPage,
-  }
+    component: List,
+  },
 ]

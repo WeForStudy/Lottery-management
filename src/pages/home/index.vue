@@ -1,8 +1,8 @@
 <template>
     <el-container class="home--wrapper both--100 flex">
-        <el-aside  :calss="'slide slide--'+slide.isCollapse" :style="sStyle">
-          <Slider />
-        </el-aside>
+       <el-aside :class="'slide collapse--'+slide.isCollapse" :style="sStyle">
+          <Aside />
+      </el-aside>
         <el-container class="flex--1">
           <el-header class="header flex">
             <div class="icon--wrapper position--a" @click="collapse">
@@ -19,25 +19,29 @@
 </template>
 
 <script>
-import Slider from 'pages/slider'
+import Aside from 'pages/aside'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Home',
+
   components: {
-    Slider,
+    Aside,
   },
+  
   methods: {
     ...mapActions([
       'collapse'
     ])
   },
+
   created() {
-    console.log(this.$store.state)
   },
+
   computed: {
      ...mapState([
       'slide'
     ]),
+
     sStyle() {
       const flag = this.slide.isCollapse
       if (flag) {
@@ -52,10 +56,13 @@ export default {
         }
       }
     },
+
     btnIcon() {
       return this.slide.isCollapse ? 'el-icon-arrow-right both--100' : 'el-icon-arrow-left both--100'
     },
+
   }
+
 }
 </script>
 
@@ -70,7 +77,7 @@ export default {
 .slide {
   min-width 200px
   width 200px
-  &.collapse {
+  &.collapse--true {
     width 80px
     min-width 80px
   }

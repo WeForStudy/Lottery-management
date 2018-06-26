@@ -1,7 +1,7 @@
 <template>
-  <el-menu :default-active="activeRoute" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="slide.isCollapse">
+  <el-menu :default-active="activeRoute" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="slide.isCollapse" :router="true">
     <template v-for="item in sliderList">
-      <el-menu-item v-if="!item.children" :key="item.name" :index="item.name" @click="routerClick(item.path)">
+      <el-menu-item v-if="!item.children" :key="item.name" :index="item.name" >
          <i :class="'el-icon-'+item.icon"></i>
          <span slot="title">{{item.text}}</span>
       </el-menu-item>
@@ -10,7 +10,7 @@
           <i :class="'el-icon-'+item.icon"></i>
           <span slot="title">{{item.text}}</span>
         </template>
-          <el-menu-item v-for="(child) in item.children" :key="child.name" :index="child.name"  @click="routerClick(child.path)">
+          <el-menu-item v-for="(child) in item.children" :key="child.name" :index="child.name" >
             {{child.text}}
           </el-menu-item>
       </el-submenu>
@@ -24,12 +24,27 @@ import { mapActions, mapState } from 'vuex'
     data() {
       return {
         sliderList: [
+
           { 
             name: 'dashboard',
             text: '首页',
             path: 'dashboard',
             icon: 'menu',
           },
+
+           {
+            name: 'business',
+            text: '商家管理',
+            icon: 'edit',            
+            children: [
+              { 
+                name: 'blist',
+                text: '商家列表', 
+                path: 'blist', 
+              },
+            ],
+          },
+          
           {
             name: 'user',
             text: '用户管理',
@@ -41,7 +56,8 @@ import { mapActions, mapState } from 'vuex'
                 path: 'ulist', 
               },
             ],
-          }
+          },
+         
         ]
       }
     },
@@ -60,9 +76,9 @@ import { mapActions, mapState } from 'vuex'
       handleClose(key, keyPath) {
         // console.log(key, keyPath);
       },
-      routerClick(path) {
-        this.$router.push({ path })
-      }
+      // routerClick(path) {
+      //   this.$router.push({ path })
+      // }
     }
   }
 </script>

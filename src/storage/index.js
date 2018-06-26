@@ -5,4 +5,4 @@ export const get = (key, storage = window.localStorage) => JSON.parse(storage.ge
 // 根据key删除值
 export const remove = (key, storage = window.localStorage) => storage.removeItem(key)
 // 清除所有的缓存
-export const remove = (storage = window.localStorage) => storage.clear()
+export const clear = (storage = window.localStorage) => storage.clear()
