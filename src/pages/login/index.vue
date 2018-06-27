@@ -19,6 +19,9 @@
 </template>
 
 <script>
+import { onLogin } from 'services'
+import { mapActions, mapState } from 'vuex'
+
 export default {
     data() {
       const validateAccount = (rule, value, callback) => {
@@ -42,7 +45,7 @@ export default {
           password: [
             { trigger: 'blur', required: true, }
           ],
-          
+
         }
       };
     },
@@ -50,13 +53,27 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$router.push({name: 'home'})
+            onLogin(
+              this.models
+            ).then(res => {
+              this.$message({
+                message: '登陆成功',
+                type: 'success'
+              })
+              this.login(res)
+              this.$router.push({name: 'home'})
+            }).catch(err => {
+               this.$message.error(err.message || err || '登陆失败')
+            })
           } else {
             console.log('error submit!!');
             return false;
           }
         });
       },
+       ...mapActions([
+        'login'
+      ])
     }
   }
 </script>
