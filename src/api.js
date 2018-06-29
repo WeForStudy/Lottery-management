@@ -14,6 +14,7 @@ export default(config => {
   // admin block
   'onLogin': '/api/admin/login',
   'getAllAdmins': '/api/admin/list',
+  'deleteAdminById': '/api/admin/del',
 
 
   // user block

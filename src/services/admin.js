@@ -6,3 +6,7 @@ export const onLogin = (params = {}) => {
 export const getAllAdmins = (params = {}) => {
   return http.get(apis.getAllAdmins, params)
 }
+
+export const deleteAdminById = (params = {}) => {
+  return http.post(apis.deleteAdminById, params)
+}

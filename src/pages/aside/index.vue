@@ -31,10 +31,9 @@ import { mapActions, mapState } from 'vuex'
             path: 'dashboard',
             icon: 'menu',
           },
-
-           {
+          {
             name: 'guide',
-            text: '导游管理',
+            text: '导游模块',
             icon: 'edit',            
             children: [
               { 
@@ -44,10 +43,9 @@ import { mapActions, mapState } from 'vuex'
               },
             ],
           },
-          
           {
             name: 'user',
-            text: '用户管理',
+            text: '用户模块',
             icon: 'edit',            
             children: [
               { 

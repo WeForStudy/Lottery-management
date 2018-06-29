@@ -8,7 +8,7 @@
             <div class="icon--wrapper position--a" @click="collapse">
               <i :class="btnIcon"></i>
             </div>
-            <div>{{login.admin.name}}</div>
+            <!-- <div>{{login.admin.name}}</div> -->
           </el-header>
           <el-main class="main flex">
             <div class="router--wrapper flex--1">
